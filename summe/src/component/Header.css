@@ -1,0 +1,29 @@
+.header {
+  background-color: #3c5a91;
+  width: 25%;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  padding-left: 0;
+  padding-right: 0;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 99;
+}
+
+/* 네비게이션 바 링크  */
+.link {
+  text-decoration: none;
+  display: block;
+  color: white;
+  padding: 8px;
+  font-weight: bold;
+}
+
+/* 네비게이션 바에 마우스를 갖다댔을때 색상바꾸기 */
+.link:hover {
+  background-color: #506ea5;
+  color: white;
+}

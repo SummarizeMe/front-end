@@ -5,7 +5,9 @@ export default function Header() {
   return (
     <div className="header">
       <h1>
-        <Link to="/">SummE</Link>
+        <Link to="/" className="link">
+          SummE
+        </Link>
       </h1>
       <div className="menu">
         <Link to="/" className="link">
