@@ -1,21 +1,22 @@
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <div className="header">
       <h1>
-        <a href="/">SummE</a>
+        <Link to="/">SummE</Link>
       </h1>
       <div className="menu">
-        <a href="/" className="link">
+        <Link to="/" className="link">
           Input
-        </a>
-        <a href="/viewgraph" className="link">
+        </Link>
+        <Link to="/viewgraph" className="link">
           View Graph
-        </a>
-        <a href="/viewothers" className="link">
+        </Link>
+        <Link to="/viewothers" className="link">
           ViewOthers
-        </a>
+        </Link>
       </div>
     </div>
   );
