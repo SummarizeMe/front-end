@@ -2,7 +2,7 @@
 frontend using React
 
 
-[commit message 규칙]
+[commit message 규칙]  
 feat : 새로운 기능에 대한 커밋  
 fix : build 빌드 관련 파일 수정에 대한 커밋  
 build : 빌드 관련 파일 수정에 대한 커밋  
