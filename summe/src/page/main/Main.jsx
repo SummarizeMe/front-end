@@ -10,6 +10,8 @@ export default function Main() {
       <InputLink />
       <InputLink />
       <InputLink />
+      <InputLink />
+      <InputLink />
       <AddInputButton />
       <ViewGraphButton />
     </>
