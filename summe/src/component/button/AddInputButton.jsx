@@ -1,9 +1,14 @@
-export default function AddInputButton() {
+import React from 'react';
+
+export default function AddInputButton({setInputCnt}) {
+
+  const addComponent = () => {
+    setInputCnt(e => e+1);
+  }
+
   return (
-    <>
-      <button type="button" onclick="">
+      <button onClick={addComponent}>
         Add Input Link
       </button>
-    </>
   );
 }
