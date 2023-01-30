@@ -3,7 +3,7 @@ import "./InputLink.css";
 export default function InputLink() {
   return (
     <div>
-      <input className="inputLink" type="text" />
+      <input className="inputLink" type="text" name="link"/>
 
       <select name="link type">
         <option value="">Link type</option>
