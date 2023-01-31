@@ -1,9 +1,10 @@
-export default function AddInputButton() {
+export default function AddInputButton({ setInputCnt }) {
+  const addComponent = () => {
+    setInputCnt((e) => e + 1);
+  };
   return (
     <>
-      <button type="button" onclick="">
-        Add Input Link
-      </button>
+      <button onClick={addComponent}>Add Input Link</button>
     </>
   );
 }
