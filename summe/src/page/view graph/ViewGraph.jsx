@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useLocation } from "react-router";
 import axios from "axios";
-import { useEffect } from "react";
+import MonthlyCommit from "../../component/graph/MonthlyCommit";
+import TeamContribute from "../../component/graph/TeamContribute";
 
 export default function ViewGraph() {
   const [loading, setLoading] = useState(false);
@@ -14,19 +15,16 @@ export default function ViewGraph() {
   const falserespose = {
     status: 200,
     data: {
-      github_repos: [
-        {
-          addr: "레포주소",
-          used_tech: ["react", "spring"],
-          used_lang: ["javascript", "python"],
-        },
-        {},
+      monthlycommit: [
+        { date: "2018-09", commitCnt: 30, lineCnt: 150 },
+        { date: "2018-12", commitCnt: 40, lineCnt: 160 },
+        { date: "2019-02", commitCnt: 50, lineCnt: 170 },
       ],
-      blog: [{ addr: "블로그 글 주소", title: "제목", keyword: ["", "", ""] }],
-      calender: [
-        { date: "2022-01-11", works: [{ type: "github", addr: "레포주소" }] },
-        { date: "2022-01-12", works: [{ type: "github", addr: "레포주소" }] },
-        { date: "2022-03-09", works: [{ type: "github", addr: "레포주소" }] },
+      teamcontribute: [
+        { repo: "A", percent: 75 },
+        { repo: "B", percent: 65 },
+        { repo: "C", percent: 35 },
+        { repo: "D", percent: 90 },
       ],
     },
   };
@@ -56,6 +54,8 @@ export default function ViewGraph() {
     <>
       <h1>view graph page</h1>
       <h2>{JSON.stringify(falserespose)}</h2>
+      <MonthlyCommit data={falserespose.data.monthlycommit} />
+      <TeamContribute data={falserespose.data.teamcontribute} />
     </>
   );
 }
