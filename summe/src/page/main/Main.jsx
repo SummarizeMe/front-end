@@ -1,8 +1,8 @@
 import "./Main.css";
 import { useState, useRef } from "react";
 import InputLink from "../../component/InputLink";
-import AddInputButton from "../../component/button/AddInputButton";
 import ViewGraphButton from "../../component/button/ViewGraphButton";
+import AddInputButton from "../../component/button/AddInputButton";
 
 export default function Main() {
   const formRef = useRef();

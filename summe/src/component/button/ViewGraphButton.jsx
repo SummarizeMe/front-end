@@ -18,9 +18,21 @@ export default function ViewGraphButton({ form }) {
     console.log(data);
     console.log(JSON.stringify(data));
 
-    //[2]data 값 ViewGraph페이지로 이동 & props로 data함께 전송
-    Navigate("/viewgraph", { state: data });
-  };
+    //let response = await axios.get("url",{params:{data:data}});
+    let respose = {status:200, data: {
+      github_repos:[
+        {addr:"레포주소", used_tech:["react","spring",], used_lang:["javascript","python"]},
+        {},
+      ],
+      blog:[
+        {addr:"블로그 글 주소", title:"제목", keyword:[" ","",],},
+      ],
+      calender: [
+        {date:"2022-01-11", works:[{type:"github", addr:"레포주소"}]},
+        {date:"2022-01-12", works:[{type:"github", addr:"레포주소"}, {},]},
+      ]
+    }}
+  }
 
   return (
     <>
