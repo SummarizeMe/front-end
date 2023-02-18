@@ -2,34 +2,13 @@ import { useState } from "react";
 import { useLocation } from "react-router";
 import axios from "axios";
 import { useEffect } from "react";
+import MostLanguage from "../../component/graph/MostLanguage";
+import Time from "../../component/graph/Time";
 
 export default function ViewGraph() {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const { state } = useLocation();
   console.log("View Graph props");
   console.log(state);
-
-  // 가짜 response
-  const falserespose = {
-    status: 200,
-    data: {
-      github_repos: [
-        {
-          addr: "레포주소",
-          used_tech: ["react", "spring"],
-          used_lang: ["javascript", "python"],
-        },
-        {},
-      ],
-      blog: [{ addr: "블로그 글 주소", title: "제목", keyword: ["", "", ""] }],
-      calender: [
-        { date: "2022-01-11", works: [{ type: "github", addr: "레포주소" }] },
-        { date: "2022-01-12", works: [{ type: "github", addr: "레포주소" }] },
-        { date: "2022-03-09", works: [{ type: "github", addr: "레포주소" }] },
-      ],
-    },
-  };
 
   //백엔드에 json형식으로 값을 전달: axios post
   // const dataPost = async () => {
@@ -55,7 +34,8 @@ export default function ViewGraph() {
   return (
     <>
       <h1>view graph page</h1>
-      <h2>{JSON.stringify(falserespose)}</h2>
+      <Time/>
+      <MostLanguage/>
     </>
   );
 }
