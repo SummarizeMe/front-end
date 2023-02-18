@@ -43,7 +43,6 @@ export default function Time({}) {
 
   return (
     <div id="chart">
-      <h2>Project TimeLine Graph</h2>
       <button
         style={{ background: "skyblue", cursor: "pointer", width: 200 }}
         onClick={handleClick}
