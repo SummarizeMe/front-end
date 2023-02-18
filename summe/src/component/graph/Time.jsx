@@ -1,10 +1,9 @@
 import ReactApexChart from "react-apexcharts";
-import {useState} from 'react';
-import axios from 'axios';
-import React, { useEffect, useRef } from 'react';
+import { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useRef } from "react";
 
-export default function Time({}){
-
+export default function Time({}) {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const startMonth = useRef(null);
@@ -27,28 +26,35 @@ export default function Time({}){
     console.log(repos);
     */
 
-    const handleClick = async () => {
-      setLoading(true);
-      let data ={
-          github:["https://github.com/raipen"],
-          start:{year:2022,month:Number(startMonth.current.value.split("-")[1])},
-          end:{year:2022,month:Number(endMonth.current.value.split("-")[1])}
-      };
-      let response = await axios.post("/api/v1/search/get_calender", data);
-      console.log(response.data);
-      setLoading(false);
+  const handleClick = async () => {
+    setLoading(true);
+    let data = {
+      github: ["https://github.com/raipen"],
+      start: {
+        year: 2022,
+        month: Number(startMonth.current.value.split("-")[1]),
+      },
+      end: { year: 2022, month: Number(endMonth.current.value.split("-")[1]) },
     };
+    let response = await axios.post("/api/v1/search/get_calender", data);
+    console.log(response.data);
+    setLoading(false);
+  };
 
-    return(
+  return (
     <div id="chart">
-        <h2>Project TimeLine Graph</h2>
-        <button style={{background:"skyblue",cursor:"pointer"}} onClick={handleClick}>button</button>
-        <br/>
-        <input type="month" ref={startMonth}/>
-        <input type="month" ref={endMonth}/>
-        <div>
-          {loading?"로딩중":"버튼을 눌러주세요"}
-        </div>
+      <button
+        style={{ background: "skyblue", cursor: "pointer", width: 200 }}
+        onClick={handleClick}
+      >
+        Time Graph
+      </button>
+      <div style={{ display: "inline", margin: 10 }}>
+        {loading ? "로딩중..." : "버튼을 눌러주세요"}
+      </div>
+      <br />
+      <input type="month" ref={startMonth} />
+      <input type="month" ref={endMonth} />
     </div>
-    );
-} 
+  );
+}
