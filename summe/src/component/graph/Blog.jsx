@@ -8,12 +8,10 @@ export default function Blog({ state }) {
 
   const handleClick = async () => {
     setLoading(true);
-    let data = state
-      .filter((e) => e.type === "tistory" || e.type === "velog")
-      .map((e) => e.link);
+    let data = state.filter((e) => e.type === "tistory").map((e) => e.link);
 
     try {
-      const response = await axios.post("/api/v1/search/get_blog", data);
+      const response = await axios.post("/api/v1/blog/tistory", data);
       console.log(response.data);
 
       const realData = response.data.reduce((result, item) => {

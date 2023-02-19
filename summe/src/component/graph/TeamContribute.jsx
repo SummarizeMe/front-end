@@ -14,14 +14,15 @@ export default function TeamContribute({ state }) {
     let data = state.filter((e) => e.type == "github").map((e) => e.link);
     console.log(data);
 
-    response = await axios.post("/api/v1/search/get_github_repos", data);
+    response = await axios.post("/api/v1/github/get_repos", data);
     console.log(response.data);
     setLoading(false);
 
     response.data.forEach((e) => {
-      realData.repo.push(e.repo);
-      realData.percent.push(e.percent);
+      realData.repo.push(e.url);
+      realData.percent.push(e.contribution);
     });
+    console.log(realData);
 
     setData({
       series: [

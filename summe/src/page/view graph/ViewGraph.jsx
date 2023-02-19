@@ -12,7 +12,7 @@ export default function ViewGraph() {
   return (
     <>
       <h1>view graph page</h1>
-      <Time />
+      <Time state={state} />
       <MostLanguage />
       <MonthlyCommit state={state} />
       <TeamContribute state={state} />
