@@ -13,6 +13,7 @@ export default function MonthlyCommit({ state }) {
   const handleClick = async () => {
     setLoading(true);
     let data = state.filter((e) => e.type == "github").map((e) => e.link);
+    console.log(data);
     response = await axios.post("/api/v1/github/get_monthly_commits", data);
     console.log(response.data);
     setLoading(false);
