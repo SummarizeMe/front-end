@@ -2,7 +2,7 @@ import ApexCharts from "react-apexcharts";
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function TeamContribute() {
+export default function TeamContribute({ state }) {
   const [loading, setLoading] = useState(false);
   const [Data, setData] = useState(null);
 
@@ -11,17 +11,15 @@ export default function TeamContribute() {
 
   const handleClick = async () => {
     setLoading(true);
-    let data = {
-      github: ["https://github.com/raipen"],
-      repos: [""],
-    };
+    let data = state.filter((e) => e.type == "github").map((e) => e.link);
+    console.log(data);
 
     response = await axios.post("/api/v1/search/get_github_repos", data);
     console.log(response.data);
     setLoading(false);
 
     response.data.forEach((e) => {
-      realData.lang.push(e.repo);
+      realData.repo.push(e.repo);
       realData.percent.push(e.percent);
     });
 

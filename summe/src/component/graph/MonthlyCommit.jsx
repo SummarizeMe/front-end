@@ -2,7 +2,8 @@ import ApexCharts from "react-apexcharts";
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function MonthlyCommit() {
+export default function MonthlyCommit({ state }) {
+  console.log(state);
   const [loading, setLoading] = useState(false);
   const [Data, setData] = useState(null);
 
@@ -11,7 +12,7 @@ export default function MonthlyCommit() {
 
   const handleClick = async () => {
     setLoading(true);
-    let data = ["https://github.com/raipen"];
+    let data = state.filter((e) => e.type == "github").map((e) => e.link);
     response = await axios.post("/api/v1/search/get_monthly_commits", data);
     console.log(response.data);
     setLoading(false);
