@@ -4,23 +4,28 @@ import axios from "axios";
 
 export default function TeamContribute() {
   const [loading, setLoading] = useState(false);
+  const [Data, setData] = useState(null);
 
   const realData = { repo: [], percent: [] };
-  const Data = null;
   let response = "";
 
   const handleClick = async () => {
     setLoading(true);
-    let data = ["https://github.com/raipen"];
+    let data = {
+      github: ["https://github.com/raipen"],
+      repos: [""],
+    };
+
     response = await axios.post("/api/v1/search/get_github_repos", data);
     console.log(response.data);
     setLoading(false);
 
-    response.forEach((e) => {
-      realData.repo.push(e.repo);
+    response.data.forEach((e) => {
+      realData.lang.push(e.repo);
       realData.percent.push(e.percent);
     });
-    Data = {
+
+    setData({
       series: [
         {
           name: "percent",
@@ -39,7 +44,7 @@ export default function TeamContribute() {
           categories: realData.repo,
         },
       },
-    };
+    });
   };
 
   return (

@@ -17,7 +17,7 @@ export default function MostLanguage() {
     setResult(response.data);
     setLoading(false);
 
-    response.forEach((e) => {
+    response.data.forEach((e) => {
       RealData.language.push(e.language);
       RealData.percentage.push(e.percentage);
     });

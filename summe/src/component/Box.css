@@ -1,6 +1,4 @@
 .box {
-  background-color: #454749;
-  height: 120px;
-  width: 120px;
-  display: inline;
+  background-color: #93b9e9;
+  border: 1px solid rgb(47, 4, 191);
 }
