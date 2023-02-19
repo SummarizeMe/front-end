@@ -13,7 +13,7 @@ export default function ViewGraph() {
     <>
       <h1>view graph page</h1>
       <Time state={state} />
-      <MostLanguage />
+      <MostLanguage state={state} />
       <MonthlyCommit state={state} />
       <TeamContribute state={state} />
       <Blog state={state} />
