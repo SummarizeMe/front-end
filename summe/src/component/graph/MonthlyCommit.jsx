@@ -13,15 +13,13 @@ export default function MonthlyCommit({ state }) {
   const handleClick = async () => {
     setLoading(true);
     let data = state.filter((e) => e.type == "github").map((e) => e.link);
-    response = await axios.post("/api/v1/search/get_monthly_commits", data);
+    response = await axios.post("/api/v1/github/get_monthly_commits", data);
     console.log(response.data);
     setLoading(false);
 
     response.data.forEach((e) => {
-      realData.commits = realData.commits.concat(e.commit);
-      realData.categories = realData.categories.concat(
-        new Array(12).fill(0).map((_, i) => e.year + "-" + (i + 1))
-      );
+      realData.commits = realData.commits.concat(e.count);
+      realData.categories = realData.categories.concat(e.year + "-" + e.month);
     });
     console.log(realData);
 
