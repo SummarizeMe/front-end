@@ -15,24 +15,13 @@ export default function ViewGraphButton({ form }) {
       data.push({ link: e, type: linkType[i] });
     });
     console.log("this is your link and link type data");
-    console.log(data);
-    console.log(JSON.stringify(data));
 
-    //let response = await axios.get("url",{params:{data:data}});
-    let respose = {status:200, data: {
-      github_repos:[
-        {addr:"레포주소", used_tech:["react","spring",], used_lang:["javascript","python"]},
-        {},
-      ],
-      blog:[
-        {addr:"블로그 글 주소", title:"제목", keyword:[" ","",],},
-      ],
-      calender: [
-        {date:"2022-01-11", works:[{type:"github", addr:"레포주소"}]},
-        {date:"2022-01-12", works:[{type:"github", addr:"레포주소"}, {},]},
-      ]
-    }}
-  }
+    // user's input
+    //console.log(data);
+    //console.log(JSON.stringify(data));
+
+    Navigate("/viewgraph", { state: data });
+  };
 
   return (
     <>

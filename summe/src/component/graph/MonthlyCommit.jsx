@@ -2,41 +2,38 @@ import ApexCharts from "react-apexcharts";
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function MonthlyCommit() {
+export default function MonthlyCommit({ state }) {
+  console.log(state);
   const [loading, setLoading] = useState(false);
+  const [Data, setData] = useState(null);
 
-  const realData = { commits: [], lines: [], categories: [] };
-  const response = "";
-  const Data = null;
+  const realData = { commits: [], categories: [] };
+  let response = "";
 
   const handleClick = async () => {
     setLoading(true);
-    let data = ["https://github.com/raipen"];
-    response = await axios.post("/api/v1/search/get_monthly_commits", data);
+    let data = state.filter((e) => e.type == "github").map((e) => e.link);
+    response = await axios.post("/api/v1/github/get_monthly_commits", data);
     console.log(response.data);
     setLoading(false);
 
-    response.forEach((e) => {
-      realData.commits.push(e.commitCnt);
-      realData.lines.push(e.lineCnt);
-      realData.categories.push(e.date);
+    response.data.forEach((e) => {
+      realData.commits = realData.commits.concat(e.count);
+      realData.categories = realData.categories.concat(e.year + "-" + e.month);
     });
+    console.log(realData);
 
-    Data = {
+    setData({
       series: [
         {
           name: "commit",
           data: realData.commits,
         },
-        {
-          name: "line",
-          data: realData.lines,
-        },
       ],
       options: {
         chart: {
           height: 350,
-          type: "area",
+          type: "bar",
         },
         dataLabels: {
           enabled: false,
@@ -50,11 +47,11 @@ export default function MonthlyCommit() {
         },
         tooltip: {
           x: {
-            format: "dd/MM/yy HH:mm",
+            format: "MM/yy",
           },
         },
       },
-    };
+    });
   };
 
   return (
@@ -63,7 +60,7 @@ export default function MonthlyCommit() {
         <ApexCharts
           options={Data.options}
           series={Data.series}
-          type="area"
+          type="bar"
           width="500"
         />
       ) : (

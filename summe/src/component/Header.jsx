@@ -26,9 +26,6 @@ export default function Header() {
         <Link to="/viewgraph" className="link">
           View Graph
         </Link>
-        <Link to="/viewothers" className="link">
-          ViewOthers
-        </Link>
       </div>
     </div>
   );
