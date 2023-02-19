@@ -6,47 +6,6 @@ import React, { useEffect, useRef } from "react";
 export default function MostLanguage() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
-<<<<<<< Updated upstream
-  const pieData = null;
-  let RealData = { language: [], percentage: [] };
-
-  const handleClick = async () => {
-    setLoading(true);
-    let data = ["https://github.com/raipen"];
-    let response = await axios.post("/api/v1/search/get_github_repos", data);
-    console.log(response.data);
-    setResult(response.data);
-    setLoading(false);
-
-    response.data.forEach((e) => {
-      RealData.language.push(e.language);
-      RealData.percentage.push(e.percentage);
-    });
-
-    pieData = {
-      series: RealData.percentage,
-      options: {
-        chart: {
-          width: 380,
-          type: "pie",
-        },
-        labels: RealData.language,
-        responsive: [
-          {
-            breakpoint: 480,
-            options: {
-              chart: {
-                width: 200,
-              },
-              legend: {
-                position: "bottom",
-              },
-            },
-          },
-        ],
-      },
-    };
-=======
   
   let RealData = { language:[], percentage:[] }
   const [pieData, setpieData]=useState(null)
@@ -123,26 +82,10 @@ export default function MostLanguage() {
         colors: ['#FFB64D', '#FF4D4D', '#6F7CFF', '#D3D3D3', '#C54DFF','#fff000','#0000FF','#00FF00','#369F36','#FF8CFF','#8B4F1D','#CD4646'], // 기본 색상 팔레트 대신 사용할 색상을 배열로 지정
       },
       });
->>>>>>> Stashed changes
   };
 
   return (
     <div id="chart">
-<<<<<<< Updated upstream
-      {pieData != null ? (
-        <ReactApexChart
-          options={pieData.options}
-          series={pieData.series}
-          type="pie"
-          width="500"
-        />
-      ) : (
-        <button
-          style={{ background: "skyblue", cursor: "pointer", width: 200 }}
-          onClick={handleClick}
-        >
-          Most Language Graph
-=======
         <h2>Most Language Graph</h2>
         {pieData != null ? (
         <ReactApexChart 
@@ -156,7 +99,6 @@ export default function MostLanguage() {
           style={{ background: "skyblue", cursor: "pointer"}}
           onClick={handleClick}>
           Most Language graph
->>>>>>> Stashed changes
         </button>
       )}
       <div style={{ display: "inline", margin: 10 }}>
