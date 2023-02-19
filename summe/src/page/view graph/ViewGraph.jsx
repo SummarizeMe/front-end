@@ -7,8 +7,7 @@ import Blog from "../../component/graph/Blog";
 
 export default function ViewGraph() {
   const { state } = useLocation();
-  console.log("View Graph props");
-  console.log("View Graph props", state);
+  //console.log("View Graph props", state);
 
   return (
     <>
