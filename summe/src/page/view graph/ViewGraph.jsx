@@ -1,4 +1,3 @@
-import { useLocation } from "react-router";
 import MostLanguage from "../../component/graph/MostLanguage";
 import Time from "../../component/graph/Time";
 import MonthlyCommit from "../../component/graph/MonthlyCommit";
