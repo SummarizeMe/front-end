@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
+        {/* <Header /> */}
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/viewgraph" element={<ViewGraph />} />
@@ -23,6 +23,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;
