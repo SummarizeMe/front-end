@@ -1,20 +1,13 @@
-import ReactApexChart from "react-apexcharts";
-import { useState } from "react";
 import axios from "axios";
-import React, { useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import GraphWrapper from "./GraphWrapper";
 
 export default function Time({ state }) {
-  const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
-  const startMonth = useRef(null);
-  const endMonth = useRef(null);
 
-  const handleClick = async () => {
-    setLoading(true);
+  const asyncWrapper = async () => {
     let data = state.filter((e) => e.type == "github").map((e) => e.link);
     let response = await axios.post("/api/v1/github/get_calender", data);
-    console.log(response.data);
-    setLoading(false);
 
     let realData = [];
     response.data.forEach((commitDate) => {
@@ -75,27 +68,13 @@ export default function Time({ state }) {
       },
     });
   };
+
+  useEffect(() => {
+    asyncWrapper();
+  }, []);
+
   return (
-    <div>
-      {data != null ? (
-        <ReactApexChart
-          options={data.options}
-          series={data.series}
-          type="rangeBar"
-          height={450}
-        />
-      ) : (
-        <button
-          style={{ background: "skyblue", cursor: "pointer", width: 200 }}
-          onClick={handleClick}
-        >
-          View Timeline
-        </button>
-      )}
-      <div style={{ display: "inline", margin: 10 }}>
-        {loading ? "로딩중…" : "버튼을 눌러주세요"}
-      </div>
-    </div>
+    <GraphWrapper data={data} type="rangeBar" height={450} width={600} />
   );
 }
 
