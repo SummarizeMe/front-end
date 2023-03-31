@@ -1,5 +1,3 @@
-import { useNavigate } from "react-router";
-
 export default function ViewGraphButton({ formRef, setData }) {
   
   const onClick = () => {
