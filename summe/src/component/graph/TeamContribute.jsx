@@ -2,6 +2,12 @@ import ApexCharts from "react-apexcharts";
 import React, { useState } from "react";
 import axios from "axios";
 
+// 문자열을 파싱하는 함수
+function getLastStringFromGithubUrl(url) {
+  const splitUrl = url.split("/");
+  return splitUrl[splitUrl.length - 1];
+}
+
 export default function TeamContribute({ state }) {
   const [loading, setLoading] = useState(false);
   const [Data, setData] = useState(null);
@@ -19,10 +25,13 @@ export default function TeamContribute({ state }) {
     setLoading(false);
 
     response.data.forEach((e) => {
-      realData.repo.push(e.url);
+      realData.repo.push(getLastStringFromGithubUrl(e.url)); //url을 파싱하여 넣기
       realData.percent.push(e.contribution);
     });
+
     console.log(realData);
+
+    //readlData.repo = https://github.com/bokoo14/SwiftUI_Study
 
     setData({
       series: [
@@ -53,7 +62,7 @@ export default function TeamContribute({ state }) {
           options={Data.options}
           series={Data.series}
           type="radar"
-          width="600"
+          width="800" // 그래프 크기를 바꾸려면 width를 바꾸면 됨
         />
       ) : (
         <button
