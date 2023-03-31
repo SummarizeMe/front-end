@@ -5,6 +5,7 @@ import ViewGraphButton from "../../component/button/ViewGraphButton";
 import AddInputButton from "../../component/button/AddInputButton";
 import Return2InputButton from "../../component/button/Return2InputButton";
 import ViewGraph from "../view graph/ViewGraph";
+import Logo from "../../picture/SUMME_Logo.png";
 
 export default function Main() {
   const formRef = useRef();
@@ -12,24 +13,44 @@ export default function Main() {
   const [data, setData] = useState([]);
 
   if (data.length === 0) {
-    return (<>
-      <form ref={formRef}>
-        {Array(inputCnt)
-          .fill(0)
-          .map((e, i) => {
-            return <InputLink key={i + 1} />;
-          })}
-      </form>
-      <AddInputButton setInputCnt={setInputCnt} />
-      <ViewGraphButton formRef={formRef} setData={setData} />
-    </>
-    )
+    return (
+      <div style={{ textAlign: "center" }}>
+        <img
+          src={Logo}
+          className="App-logo"
+          alt="React"
+          width={300}
+          style={{
+            marginTop: "30px",
+            marginBottom: "30px",
+            textAlign: "center",
+          }}
+        />
+
+        <form ref={formRef}>
+          {Array(inputCnt)
+            .fill(0)
+            .map((e, i) => {
+              return <InputLink key={i + 1} />;
+            })}
+        </form>
+        <AddInputButton setInputCnt={setInputCnt} />
+        <ViewGraphButton
+          className="viewGraphButton"
+          formRef={formRef}
+          setData={setData}
+        />
+      </div>
+    );
   }
 
   return (
     <>
       <ViewGraph state={data} />
-      <Return2InputButton setInputCnt={setInputCnt} setData={setData}></Return2InputButton>
+      <Return2InputButton
+        setInputCnt={setInputCnt}
+        setData={setData}
+      ></Return2InputButton>
     </>
   );
 }
