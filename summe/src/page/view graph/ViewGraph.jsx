@@ -5,10 +5,7 @@ import MonthlyCommit from "../../component/graph/MonthlyCommit";
 import TeamContribute from "../../component/graph/TeamContribute";
 import Blog from "../../component/graph/Blog";
 
-export default function ViewGraph() {
-  const { state } = useLocation();
-  //console.log("View Graph props", state);
-
+export default function ViewGraph({ state }) {
   return (
     <>
       <h1>view graph page</h1>
