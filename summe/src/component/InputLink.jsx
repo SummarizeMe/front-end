@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function InputLink({ input, setInput}) {
   let urlTypes = ["github", "tistory", "velog", "notion"];
-  console.log(input);
+  
   return (
     <div>
       <input

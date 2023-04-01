@@ -1,20 +1,25 @@
 import ApexCharts from "react-apexcharts";
 
-export default function GraphWrapper({ data, type, height, width }) {
+const LoadingBox = () => {
     return (
-        <div>
+        <div style={{ height: "100%", width: "100%" }}>
+            로딩중 ...
+        </div>
+    );
+};
+
+export default function GraphWrapper({ data, type, height, width,maxWidth }) {
+    return (
+        <div style={{width:width,maxWidth:maxWidth,height:height,display:"inline-block"}}>
             {data
                 ? <ApexCharts
                     options={data.options}
                     series={data.series}
                     type={type}
-                    height={height}
-                    width={width}
+                    height="100%"
+                    width="100%"
                 />
-                : <div
-                    style={{ height: height + "px", width: width + "px" }}>
-                    로딩중 ...
-                </div>
+                : <LoadingBox/>
             }
         </div>
     );

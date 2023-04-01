@@ -3,12 +3,11 @@ import axios from "axios";
 import GraphWrapper from "./GraphWrapper";
 
 export default function MonthlyCommit({ state }) {
-  const [Data, setData] = useState(null);
+  const [data, setData] = useState(null);
 
   const asyncWrapper = async () => {
-    let data = state.filter((e) => e.type === "github").map((e) => e.link);
 
-    const response = await axios.post("/api/v1/github/get_monthly_commits", data);
+    const response = await axios.post("/api/v1/github/get_monthly_commits", state);
 
     const realData = { commits: [], categories: [] };
     response.data.forEach((e) => {
@@ -52,6 +51,6 @@ export default function MonthlyCommit({ state }) {
   }, []);
 
   return (
-    <GraphWrapper data={Data} type="bar" height={350} width={600} />
+    <GraphWrapper data={data} type="bar" height={350} width={600} />
   );
 }

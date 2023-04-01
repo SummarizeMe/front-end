@@ -6,12 +6,17 @@ export default function Blog({ state }) {
   const [data, setData] = useState(null);
 
   const asyncWrapper = async () => {
-    let data = state.filter((e) => e.type === "tistory").map((e) => e.link);
+    let tistoryData = state.filter((e) => e.type === "tistory").map((e) => e.link);
+    let velogData = state.filter((e) => e.type === "velog").map((e) => e.link);
 
     try {
-      const response = await axios.post("/api/v1/blog/tistory", data);
+      const waitArray = [];
+      if(tistoryData.length > 0) waitArray.push(axios.post("/api/v1/blog/tistory", tistoryData));
+      if(velogData.length > 0) waitArray.push(axios.post("/api/v1/blog/velog", velogData));
+      const response = await Promise.all(waitArray);
+      const responseData =  response.reduce((result, item) => result.concat(item.data), []);
 
-      const realData = response.data.reduce((result, item) => {
+      const realData = responseData.reduce((result, item) => {
         item.keyword.forEach((keyword) => {
           const existingItem = result.find((r) => r.x === keyword);
           if (existingItem) {
@@ -52,6 +57,6 @@ export default function Blog({ state }) {
   }, []);
 
   return (
-    <GraphWrapper data={data} type="treemap" height={350} width={600} />
+    <GraphWrapper data={data} type="treemap" height="350px" width="100%" maxWidth="800px" />
   );
 }

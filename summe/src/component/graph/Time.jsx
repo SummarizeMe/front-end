@@ -6,8 +6,7 @@ export default function Time({ state }) {
   const [data, setData] = useState(null);
 
   const asyncWrapper = async () => {
-    let data = state.filter((e) => e.type === "github").map((e) => e.link);
-    let response = await axios.post("/api/v1/github/get_calender", data);
+    let response = await axios.post("/api/v1/github/get_calender", state);
 
     let realData = [];
     response.data.forEach((commitDate) => {
