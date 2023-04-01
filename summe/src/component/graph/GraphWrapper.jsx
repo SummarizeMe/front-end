@@ -1,12 +1,10 @@
 import ApexCharts from "react-apexcharts";
+import "./GraphLoading.css";
 import "./GraphTitle.css";
 
+// 회전하는 로딩 중 표시
 const LoadingBox = () => {
-    return (
-        <div style={{ height: "100%", width: "100%" }}>
-            로딩중 ...
-        </div>
-    );
+  return <div className="loading-box"></div>;
 };
 
 const GraphTitle = ({ title, description }) => {
