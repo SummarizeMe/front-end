@@ -1,7 +1,6 @@
-export default function Return2InputButton({ setInputCnt, setData }) {
+export default function Return2InputButton({ setIsGraph }) {
     const handleClick = () => {
-        setInputCnt(1);
-        setData([]);
+        setIsGraph(false);
     };
 
     return (

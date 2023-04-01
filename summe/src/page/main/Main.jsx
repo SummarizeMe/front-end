@@ -9,10 +9,10 @@ import Logo from "../../picture/SUMME_Logo.png";
 
 export default function Main() {
   const formRef = useRef();
-  const [inputCnt, setInputCnt] = useState(1);
-  const [data, setData] = useState([]);
+  const [input, setInput] = useState([{ link: "", type: "" }]);
+  const [isGraph, setIsGraph] = useState(false);
 
-  if (data.length === 0) {
+  if (!isGraph) {
     return (
       <div style={{ textAlign: "center" }}>
         <img
@@ -28,17 +28,21 @@ export default function Main() {
         />
 
         <form ref={formRef}>
-          {Array(inputCnt)
-            .fill(0)
+          {input
             .map((e, i) => {
-              return <InputLink key={i + 1} />;
+              return <InputLink
+                key={i + 1}
+                input={e}
+                setInput={e=>{
+                  setInput(input.map((f, j) => j===i ? e : f));
+                }}
+              />;
             })}
         </form>
-        <AddInputButton setInputCnt={setInputCnt} />
+        <AddInputButton setInput={setInput} />
         <ViewGraphButton
           className="viewGraphButton"
-          formRef={formRef}
-          setData={setData}
+          setIsGraph={setIsGraph}
         />
       </div>
     );
@@ -46,10 +50,9 @@ export default function Main() {
 
   return (
     <>
-      <ViewGraph state={data} />
+      <ViewGraph state={input} />
       <Return2InputButton
-        setInputCnt={setInputCnt}
-        setData={setData}
+        setIsGraph={setIsGraph}
       ></Return2InputButton>
     </>
   );

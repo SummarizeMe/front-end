@@ -6,7 +6,7 @@ export default function Time({ state }) {
   const [data, setData] = useState(null);
 
   const asyncWrapper = async () => {
-    let data = state.filter((e) => e.type == "github").map((e) => e.link);
+    let data = state.filter((e) => e.type === "github").map((e) => e.link);
     let response = await axios.post("/api/v1/github/get_calender", data);
 
     let realData = [];
@@ -17,9 +17,9 @@ export default function Time({ state }) {
       commitDate.works
         .map((e) => e.repo)
         .forEach((repo) => {
-          if (realData.find((e) => e.name == repo)) {
+          if (realData.find((e) => e.name === repo)) {
             realData
-              .find((e) => e.name == repo)
+              .find((e) => e.name === repo)
               .data.push({
                 x: "commit",
                 y: [today.getTime(), nextDay.getTime()],

@@ -6,7 +6,7 @@ export default function MonthlyCommit({ state }) {
   const [Data, setData] = useState(null);
 
   const asyncWrapper = async () => {
-    let data = state.filter((e) => e.type == "github").map((e) => e.link);
+    let data = state.filter((e) => e.type === "github").map((e) => e.link);
 
     const response = await axios.post("/api/v1/github/get_monthly_commits", data);
 

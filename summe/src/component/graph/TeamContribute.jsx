@@ -12,7 +12,7 @@ export default function TeamContribute({ state }) {
   const [data, setData] = useState(null);
 
   const asyncWrapper = async () => {
-    let data = state.filter((e) => e.type == "github").map((e) => e.link);
+    let data = state.filter((e) => e.type === "github").map((e) => e.link);
 
     const response = await axios.post("/api/v1/github/get_repos", data);
     const realData = { repo: [], percent: [] };
