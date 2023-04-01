@@ -1,11 +1,11 @@
 import "./Main.css";
+import Logo from "../../picture/SUMME_Logo.png";
 import { useState, useRef } from "react";
 import InputLink from "../../component/InputLink";
 import ViewGraphButton from "../../component/button/ViewGraphButton";
 import AddInputButton from "../../component/button/AddInputButton";
 import Return2InputButton from "../../component/button/Return2InputButton";
 import ViewGraph from "../view graph/ViewGraph";
-import Logo from "../../picture/SUMME_Logo.png";
 
 export default function Main() {
   const [input, setInput] = useState([{ link: "", type: "" }]);
