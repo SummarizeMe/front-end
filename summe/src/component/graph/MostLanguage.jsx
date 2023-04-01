@@ -3,12 +3,11 @@ import { useEffect, useState } from "react";
 import GraphWrapper from "./GraphWrapper";
 
 export default function MostLanguage({ state }) {
-  const [pieData, setpieData] = useState(null);
+  const [data, setData] = useState(null);
 
   const asyncWrapper = async () => {
-    let data = state.filter((e) => e.type === "github").map((e) => e.link);
 
-    let response = await axios.post("/api/v1/github/get_repos", data);
+    let response = await axios.post("/api/v1/github/get_repos", state);
     let repos = {};
     response.data.forEach((e) => {
       e.used_lang.forEach(
@@ -39,7 +38,7 @@ export default function MostLanguage({ state }) {
       });
     });
 
-    setpieData({
+    setData({
       plotOptions: {
         bar: {
           distributed: true,
@@ -99,6 +98,6 @@ export default function MostLanguage({ state }) {
   }, []);
 
   return (
-    <GraphWrapper data={pieData} type="bar" height={350} width={600} />
+    <GraphWrapper data={data} type="bar" height={350} width={600} />
   );
 }

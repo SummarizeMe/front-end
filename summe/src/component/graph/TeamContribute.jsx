@@ -12,9 +12,7 @@ export default function TeamContribute({ state }) {
   const [data, setData] = useState(null);
 
   const asyncWrapper = async () => {
-    let data = state.filter((e) => e.type === "github").map((e) => e.link);
-
-    const response = await axios.post("/api/v1/github/get_repos", data);
+    const response = await axios.post("/api/v1/github/get_repos", state);
     const realData = { repo: [], percent: [] };
     response.data.forEach((e) => {
       realData.repo.push(getLastStringFromGithubUrl(e.url)); //url을 파싱하여 넣기

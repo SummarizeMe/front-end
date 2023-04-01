@@ -8,7 +8,6 @@ import ViewGraph from "../view graph/ViewGraph";
 import Logo from "../../picture/SUMME_Logo.png";
 
 export default function Main() {
-  const formRef = useRef();
   const [input, setInput] = useState([{ link: "", type: "" }]);
   const [isGraph, setIsGraph] = useState(false);
 
@@ -27,21 +26,20 @@ export default function Main() {
           }}
         />
 
-        <form ref={formRef}>
-          {input
-            .map((e, i) => {
-              return <InputLink
-                key={i + 1}
-                input={e}
-                setInput={e=>{
-                  setInput(input.map((f, j) => j===i ? e : f));
-                }}
-              />;
-            })}
-        </form>
+        {input
+          .map((e, i) => {
+            return <InputLink
+              key={i + 1}
+              input={e}
+              setInput={e=>{
+                setInput(input.map((f, j) => j===i ? e : f));
+              }}
+            />;
+          })}
         <AddInputButton setInput={setInput} />
         <ViewGraphButton
-          className="viewGraphButton"
+          input={input}
+          setInput={setInput}
           setIsGraph={setIsGraph}
         />
       </div>
