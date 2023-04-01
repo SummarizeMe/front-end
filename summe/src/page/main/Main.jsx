@@ -1,6 +1,7 @@
 import "./Main.css";
 import Logo from "../../picture/SUMME_Logo.png";
 import { useState, useRef } from "react";
+import SampleData from "../../component/button/SampleData";
 import InputLink from "../../component/InputLink";
 import ViewGraphButton from "../../component/button/ViewGraphButton";
 import AddInputButton from "../../component/button/AddInputButton";
@@ -20,22 +21,24 @@ export default function Main() {
           alt="React"
           width={300}
           style={{
-            marginTop: "30px",
-            marginBottom: "30px",
+            marginTop: "80px",
+            marginBottom: "60px",
             textAlign: "center",
           }}
         />
 
-        {input
-          .map((e, i) => {
-            return <InputLink
+        <SampleData setInput={setInput} />
+        {input.map((e, i) => {
+          return (
+            <InputLink
               key={i + 1}
               input={e}
-              setInput={e=>{
-                setInput(input.map((f, j) => j===i ? e : f));
+              setInput={(e) => {
+                setInput(input.map((f, j) => (j === i ? e : f)));
               }}
-            />;
-          })}
+            />
+          );
+        })}
         <AddInputButton setInput={setInput} />
         <ViewGraphButton
           input={input}
@@ -49,9 +52,7 @@ export default function Main() {
   return (
     <>
       <ViewGraph state={input} />
-      <Return2InputButton
-        setIsGraph={setIsGraph}
-      ></Return2InputButton>
+      <Return2InputButton setIsGraph={setIsGraph}></Return2InputButton>
     </>
   );
 }

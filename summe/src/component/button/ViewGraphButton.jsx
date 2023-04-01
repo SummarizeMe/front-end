@@ -1,13 +1,13 @@
 import "./Button.css";
 import ViewGraphIcon from "../../picture/viewGraphIcon.png";
 
-export default function ViewGraphButton({ input,setInput,setIsGraph }) {
+export default function ViewGraphButton({ input, setInput, setIsGraph }) {
   const onClick = () => {
-    if(!input.some(e=>e.link!==""&&e.type!=="")){
+    if (!input.some((e) => e.link !== "" && e.type !== "")) {
       alert("Please fill in all the blanks");
       return;
     }
-    setInput(input.filter(e=>e.link!==""&&e.type!==""));
+    setInput(input.filter((e) => e.link !== "" && e.type !== ""));
     setIsGraph(true);
   };
 
@@ -18,9 +18,9 @@ export default function ViewGraphButton({ input,setInput,setIsGraph }) {
           src={ViewGraphIcon}
           className="App-logo"
           alt="React"
-          height={20}
+          height={30}
           style={{
-            marginRight: "5px",
+            marginRight: "9px",
           }}
         />
         View Graph
