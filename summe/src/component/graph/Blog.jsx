@@ -41,11 +41,8 @@ export default function Blog({ state }) {
           chart: {
             height: 350,
             type: "treemap",
-          },
-          title: {
-            text: "Basic Treemap",
-          },
-        },
+          }
+        }
       });
     } catch (error) {
       console.error(error);
@@ -57,6 +54,6 @@ export default function Blog({ state }) {
   }, []);
 
   return (
-    <GraphWrapper data={data} type="treemap" height="350px" width="100%"/>
+    <GraphWrapper data={data} type="treemap" height="350px" width="100%" title="그래프 테스트" description="그래프 설명"/>
   );
 }

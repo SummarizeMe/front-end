@@ -1,0 +1,33 @@
+.description{
+    position: relative;
+    margin-left: 0.5rem;
+}
+
+.description>div{
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    width: max-content;
+    font-size: 1rem;
+    background-color: #B0BEC5;
+    padding: 0.5rem;
+    color: white;
+    z-index: 1;
+}
+
+.description>div::before{
+    content: "";
+    position: absolute;
+    top: -0.5rem;
+    left: 0.5rem;
+    width: 0;
+    height: 0;
+    border-left: 0.5rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-bottom: 0.5rem solid #B0BEC5;
+}
+
+.description:hover>div{
+    display: inline-block;
+}
