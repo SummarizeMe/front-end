@@ -73,7 +73,7 @@ export default function Time({ state }) {
   }, []);
 
   return (
-    <GraphWrapper data={data} type="rangeBar" height={450} width={600} />
+    <GraphWrapper data={data} type="rangeBar" height={(350+ (data ? data.series.length*10:0))+"px"} width="100%"/>
   );
 }
 

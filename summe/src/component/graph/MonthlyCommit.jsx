@@ -51,6 +51,6 @@ export default function MonthlyCommit({ state }) {
   }, []);
 
   return (
-    <GraphWrapper data={data} type="bar" height={350} width={600} />
+    <GraphWrapper data={data} type="bar"  height="350px" width="50%"/>
   );
 }

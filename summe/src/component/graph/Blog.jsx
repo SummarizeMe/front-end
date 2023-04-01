@@ -57,6 +57,6 @@ export default function Blog({ state }) {
   }, []);
 
   return (
-    <GraphWrapper data={data} type="treemap" height="350px" width="100%" maxWidth="800px" />
+    <GraphWrapper data={data} type="treemap" height="350px" width="100%"/>
   );
 }
