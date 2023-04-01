@@ -1,8 +1,8 @@
 import "./Button.css";
 
-export default function AddInputButton({ setInputCnt }) {
+export default function AddInputButton({ setInput }) {
   const addComponent = () => {
-    setInputCnt((e) => e + 1);
+    setInput((e) => e.concat({ link: "", type: "" }));
   };
   return (
     <>
