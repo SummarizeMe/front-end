@@ -1,4 +1,5 @@
 import "./Button.css";
+import ViewGraphIcon from "../../picture/viewGraphIcon.png";
 
 export default function ViewGraphButton({ formRef, setData }) {
   const onClick = () => {
@@ -21,7 +22,16 @@ export default function ViewGraphButton({ formRef, setData }) {
 
   return (
     <>
-      <button className="addViewButton" type="button" onClick={onClick}>
+      <button className="viewGraphButton" type="button" onClick={onClick}>
+        <img
+          src={ViewGraphIcon}
+          className="App-logo"
+          alt="React"
+          height={20}
+          style={{
+            marginRight: "5px",
+          }}
+        />
         View Graph
       </button>
     </>

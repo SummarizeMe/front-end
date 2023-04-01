@@ -1,4 +1,5 @@
 import "./Button.css";
+import addLink from "../../picture/addLink.png";
 
 export default function AddInputButton({ setInputCnt }) {
   const addComponent = () => {
@@ -6,8 +7,8 @@ export default function AddInputButton({ setInputCnt }) {
   };
   return (
     <>
-      <button className="addViewButton" onClick={addComponent}>
-        Add Input Link
+      <button className="plusButton" onClick={addComponent}>
+        +
       </button>
     </>
   );
