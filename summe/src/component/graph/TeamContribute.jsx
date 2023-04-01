@@ -33,9 +33,6 @@ export default function TeamContribute({ state }) {
           height: 350,
           type: "radar",
         },
-        title: {
-          text: "Basic Radar Chart",
-        },
         xaxis: {
           categories: realData.repo,
         },
@@ -48,6 +45,6 @@ export default function TeamContribute({ state }) {
   }, []);
 
   return (
-    <GraphWrapper data={data} type="radar" height={350} width={600} />
+    <GraphWrapper data={data} type="radar"  height="350px" width="50%"/>
   );
 }

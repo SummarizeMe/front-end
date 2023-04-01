@@ -7,6 +7,22 @@ import AddInputButton from "../../component/button/AddInputButton";
 import Return2InputButton from "../../component/button/Return2InputButton";
 import ViewGraph from "../view graph/ViewGraph";
 
+const SummeLogo = () => {
+  return (
+    <img
+      src={Logo}
+      className="App-logo"
+      alt="React"
+      width={300}
+      style={{
+        marginTop: "80px",
+        marginBottom: "60px",
+        textAlign: "center",
+      }}
+    />
+  );
+};
+
 export default function Main() {
   const [input, setInput] = useState([{ link: "", type: "" }]);
   const [isGraph, setIsGraph] = useState(false);
@@ -14,17 +30,7 @@ export default function Main() {
   if (!isGraph) {
     return (
       <div style={{ textAlign: "center" }}>
-        <img
-          src={Logo}
-          className="App-logo"
-          alt="React"
-          width={300}
-          style={{
-            marginTop: "30px",
-            marginBottom: "30px",
-            textAlign: "center",
-          }}
-        />
+        <SummeLogo />
 
         {input
           .map((e, i) => {
@@ -47,11 +53,12 @@ export default function Main() {
   }
 
   return (
-    <>
+    <div style={{ textAlign: "center", maxWidth:"1200px", margin:"auto" }}>
+      <SummeLogo />
       <ViewGraph state={input} />
       <Return2InputButton
         setIsGraph={setIsGraph}
       ></Return2InputButton>
-    </>
+    </div>
   );
 }

@@ -8,9 +8,9 @@ const LoadingBox = () => {
     );
 };
 
-export default function GraphWrapper({ data, type, height, width,maxWidth }) {
+export default function GraphWrapper({ data, type, height, width }) {
     return (
-        <div style={{width:width,maxWidth:maxWidth,height:height,display:"inline-block"}}>
+        <div style={{width:width,height:height,display:"inline-block"}}>
             {data
                 ? <ApexCharts
                     options={data.options}

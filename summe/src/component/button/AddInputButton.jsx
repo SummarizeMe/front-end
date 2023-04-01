@@ -1,5 +1,4 @@
 import "./Button.css";
-import addLink from "../../picture/addLink.png";
 
 export default function AddInputButton({ setInput }) {
   const addComponent = () => {
