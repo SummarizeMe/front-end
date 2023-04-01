@@ -1,9 +1,9 @@
 import "./Button.css";
 import addLink from "../../picture/addLink.png";
 
-export default function AddInputButton({ setInputCnt }) {
+export default function AddInputButton({ setInput }) {
   const addComponent = () => {
-    setInputCnt((e) => e + 1);
+    setInput((e) => e.concat({ link: "", type: "" }));
   };
   return (
     <>

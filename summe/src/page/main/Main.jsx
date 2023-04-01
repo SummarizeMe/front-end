@@ -8,11 +8,10 @@ import Return2InputButton from "../../component/button/Return2InputButton";
 import ViewGraph from "../view graph/ViewGraph";
 
 export default function Main() {
-  const formRef = useRef();
-  const [inputCnt, setInputCnt] = useState(1);
-  const [data, setData] = useState([]);
+  const [input, setInput] = useState([{ link: "", type: "" }]);
+  const [isGraph, setIsGraph] = useState(false);
 
-  if (data.length === 0) {
+  if (!isGraph) {
     return (
       <div style={{ textAlign: "center" }}>
         <img
@@ -27,19 +26,21 @@ export default function Main() {
           }}
         />
 
-        <form ref={formRef}>
-          {Array(inputCnt)
-            .fill(0)
-            .map((e, i) => {
-              return <InputLink key={i + 1} />;
-            })}
-        </form>
-
-        <AddInputButton setInputCnt={setInputCnt} />
+        {input
+          .map((e, i) => {
+            return <InputLink
+              key={i + 1}
+              input={e}
+              setInput={e=>{
+                setInput(input.map((f, j) => j===i ? e : f));
+              }}
+            />;
+          })}
+        <AddInputButton setInput={setInput} />
         <ViewGraphButton
-          className="viewGraphButton"
-          formRef={formRef}
-          setData={setData}
+          input={input}
+          setInput={setInput}
+          setIsGraph={setIsGraph}
         />
       </div>
     );
@@ -47,10 +48,9 @@ export default function Main() {
 
   return (
     <>
-      <ViewGraph state={data} />
+      <ViewGraph state={input} />
       <Return2InputButton
-        setInputCnt={setInputCnt}
-        setData={setData}
+        setIsGraph={setIsGraph}
       ></Return2InputButton>
     </>
   );
