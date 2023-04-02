@@ -45,6 +45,9 @@ export default function TeamContribute({ state }) {
   }, []);
 
   return (
-    <GraphWrapper data={data} type="radar"  height="350px" width="50%"/>
+    <GraphWrapper data={data} type="radar"  height="350px" width="50%"
+      title="프로젝트 기여도"
+      description="Github의 데이터를 기반으로 분석하여 사용자가 참여했던 프로젝트들의 기여도를 분석했습니다. 사용자가 참여했던 프로젝트에 대해 팀원 전체의 commit수를 파악하여 해당 사용자의 기여도를 %단위로 나타냈습니다."
+    />
   );
 }

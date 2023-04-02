@@ -98,6 +98,9 @@ export default function MostLanguage({ state }) {
   }, []);
 
   return (
-    <GraphWrapper data={data} type="bar" height="350px" width="100%"/>
+    <GraphWrapper data={data} type="bar" height="350px" width="100%"
+      title="프로젝트 별 가장 많이 쓴 언어" 
+      description="Github의 데이터를 기반으로 분석하여 사용자가 참여했던 프로젝트들의 언어를 분석했습니다. 프로젝트 별로 사용된 언어의 비율을 한눈에 파악할 수 있습니다."
+    />
   );
 }

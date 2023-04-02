@@ -54,6 +54,9 @@ export default function Blog({ state }) {
   }, []);
 
   return (
-    <GraphWrapper data={data} type="treemap" height="350px" width="100%" title="그래프 테스트" description="그래프 설명"/>
+    <GraphWrapper data={data} type="treemap" height="350px" width="100%"
+      title="내가 가장 많이 쓴 키워드"
+      description="Tistory, Velog의 데이터를 기반으로 분석하여 가장 많이 쓴 키워드들을 나타냈습니다.사용자의 블로그 내에서 특정 키워드의 사용빈도와 그래프의 면적이 비례합니다."
+    />
   );
 }
