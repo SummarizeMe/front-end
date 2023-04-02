@@ -73,7 +73,10 @@ export default function Time({ state }) {
   }, []);
 
   return (
-    <GraphWrapper data={data} type="rangeBar" height={(350+ (data ? data.series.length*10:0))+"px"} width="100%"/>
+    <GraphWrapper data={data} type="rangeBar" height={(350+ (data ? data.series.length*10:0))+"px"} width="100%"
+      title="프로젝트 기간"
+      description="Github의 데이터를 기반으로 분석하여 사용자가 했던 프로젝트들의 기간을 파악할 수 있도록 타임라인 형식으로 나타내었습니다."
+    />
   );
 }
 

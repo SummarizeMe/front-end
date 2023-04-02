@@ -4,6 +4,8 @@
 }
 
 .description>div{
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
     display: none;
     position: absolute;
     top: calc(100% + 0.5rem);
@@ -13,7 +15,7 @@
     background-color: #B0BEC5;
     padding: 0.5rem;
     color: white;
-    z-index: 1;
+    z-index: 10000;
 }
 
 .description>div::before{
