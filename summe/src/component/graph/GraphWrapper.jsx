@@ -22,7 +22,7 @@ const GraphTitle = ({ title, description }) => {
 
 export default function GraphWrapper({ data, type, height, width, title = "그래프 제목", description = "그래프 설명" }) {
     return (
-        <div style={{ width: width, height: height, display: "inline-block", position: "relative" }}>
+        <div style={{ margin: "10px",width: "calc("+width+" - 30px)", height: height, display: "inline-block", position: "relative" }}>
             <GraphTitle title={title} description={description} />
             {data
                 ? <ApexCharts
