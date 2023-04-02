@@ -33,19 +33,21 @@ export default function Main() {
       <div style={{ textAlign: "center" }}>
         <SummeLogo />
 
-        <SampleData setInput={setInput} />
-        {input.map((e, i) => {
-          return (
-            <InputLink
-              key={i + 1}
-              input={e}
-              setInput={(e) => {
-                setInput(input.map((f, j) => (j === i ? e : f)));
-              }}
-            />
-          );
-        })}
-        <AddInputButton setInput={setInput} />
+        <div style={{margin:"auto",width:"calc(50% + 256px)"}}>
+          <SampleData setInput={setInput} />
+          {input.map((e, i) => {
+            return (
+              <InputLink
+                key={i + 1}
+                input={e}
+                setInput={(e) => {
+                  setInput(input.map((f, j) => (j === i ? e : f)));
+                }}
+              />
+            );
+          })}
+          <AddInputButton setInput={setInput} />
+        </div>
         <ViewGraphButton
           input={input}
           setInput={setInput}
