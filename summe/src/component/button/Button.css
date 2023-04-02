@@ -19,7 +19,7 @@
   box-shadow: 1px 1px 3px #b0bec5; /* 그림자 효과 */
 }
 
-.viewGraphButton {
+.viewGraphButton,.returnInputButton {
   /* background-color: #eceff1; */
   background-color: white;
   color: #78909c;
@@ -37,33 +37,24 @@
   margin: 2px;
   /* box-shadow: 1px 1px; 그림자 효과 */
   border: 1px solid #b0bec5;
-  margin: auto;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 5px auto 50px auto;
 }
 
-.viewGraphButton:hover {
+.viewGraphButton:hover,.returnInputButton:hover {
   box-shadow: 1px 1px 3px #b0bec5; /* 그림자 효과 */
 }
 
 .sampleData {
-  /* background-color: #eceff1; */
   background-color: white;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   line-height: 30px;
   width: 100px;
   height: 20px;
   border-radius: 7px;
-  margin: 2px;
-  /* box-shadow: 1px 1px; 그림자 효과 */
   border: 1px solid #b0bec5;
-  margin-left: 13%;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 5px 0 5px 10px;
 }
 .sampleData:hover {
   box-shadow: 1px 1px 3px #b0bec5; /* 그림자 효과 */

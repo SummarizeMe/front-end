@@ -5,7 +5,7 @@ export default function InputLink({ input, setInput}) {
   let urlTypes = ["github", "tistory", "velog", "notion"];
   
   return (
-    <div>
+    <div className="inputWrapper">
       <input
         className="inputLink"
         type="text"
@@ -26,7 +26,7 @@ export default function InputLink({ input, setInput}) {
               f.preventDefault();
               setInput({...input, type: e});
             }}
-            className={input.type === e ? "selected" : "notselected"}
+            className={input.type === e ? "selected typeButton" : "typeButton"}
           >
             {e.charAt(0).toUpperCase() + e.slice(1)}
           </button>

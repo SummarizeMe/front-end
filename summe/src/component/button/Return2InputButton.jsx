@@ -1,3 +1,4 @@
+import "./Button.css";
 export default function Return2InputButton({ setIsGraph }) {
     const handleClick = () => {
         setIsGraph(false);
@@ -5,7 +6,7 @@ export default function Return2InputButton({ setIsGraph }) {
 
     return (
         <>
-            <button onClick={handleClick}>Return To Input</button>
+            <button className="returnInputButton" onClick={handleClick}>Return To Input</button>
         </>
     );
 }

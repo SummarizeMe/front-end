@@ -1,42 +1,43 @@
+.inputWrapper{
+  width: 100%;
+  max-width: 1200px;
+  min-width: 300px;
+  display: flex;
+  margin: auto;
+}
+
 .inputLink {
-  width: 30%;
   margin: 3px 10px;
   background-color: transparent;
   height: 30px;
-  width: calc(50% - 4px);
-  max-width: 800px;
-  min-width: 50px;
   border: 2px solid rgba(0, 0, 0, 0.23);
   border-radius: 7px;
+  flex-grow: 1;
 }
 
 .inputLink:hover {
   box-shadow: 1px 1px 3px #b0bec5; /* 그림자 효과 */
 }
 
-.selected {
+.typeButton.selected {
   background-color: #cfd8dc;
-  width: 60px;
-  height: 30px;
-  border-radius: 7px;
-  margin: 2px;
-  border: 1px solid #b0bec5;
 }
 
-.selected:hover {
+.typeButton.selected:hover {
   box-shadow: 1px 1px 3px #607d8b; /* 그림자 효과 */
 }
 
-.notselected {
+.typeButton {
   /* background-color: #eceff1; */
   background-color: white;
   width: 60px;
   height: 30px;
   border-radius: 7px;
   margin: 2px;
+  flex-grow: 0;
   border: 1px solid #b0bec5;
 }
 
-.notselected:hover {
+.typeButton:hover {
   box-shadow: 1px 1px 3px #b0bec5; /* 그림자 효과 */
 }
